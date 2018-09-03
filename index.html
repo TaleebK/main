@@ -48,7 +48,7 @@
         if (dayss >= 3600){
             dayss = 3600;
         }
-    if(a <= gt && a > 0 && b > 0 && b <= 100 && dayss > 0)
+    if(a <= gt && a > 0 && b > 0 && b <= 100 && dayss >= 0)
         {
     document.getElementById("Re").innerHTML =(((a*100/gt)*0.4) + (b*0.4) + (dayss/360) *2).toFixed(0) ;
  
