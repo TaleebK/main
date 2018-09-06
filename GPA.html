@@ -16,13 +16,12 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+
 
 </head>
 <body>
 <style>
-    body {
-        background-color:#FBFCFC;
-    }
     table {
 width: 100%;
         text-align: center;
@@ -82,12 +81,12 @@ select {
    left: 0;
    bottom: 0;
    width: 100%;
-   background-color: #FF5733;
-   color: white;
+   background-color: #e9ecef;
+   color: cadetblue;
    text-align: center;
 }
     .fo a{
-        color: white;
+        color: black;
         
     }
     </style>
@@ -141,8 +140,8 @@ select {
        }
 </script>
     <div class="container">
-    <table>
-    <tr style="text-align: center; background-color:#AAB7B8; color:white"><th>المقرر</th><th>التقدير</th><th>الساعات</th><th>النقاط</th></tr>
+    <table class="pure-table pure-table-bordered">
+    <tr style="text-align: center; background-color:#F0F3F4"><th>المقرر</th><th>التقدير</th><th>الساعات</th><th>النقاط</th></tr>
         <tr><td><input class="form-control" type="text" value="" id="one" placeholder="اسم المقرر"></td>
         <td>
 <select id="G" multiple>
