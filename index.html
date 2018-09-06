@@ -21,20 +21,37 @@
 
 </head>
 <body>
-<script>
+<p id="ddd"></p>
+<script> 
+        function sel(){ 
+            var bb = document.getElementById("Te");
+            bb.disabled = true; 
+            document.getElementById("n").style.visibility = "hidden";
+            document.getElementById("w").style.visibility = "visible";
+            document.getElementById("Te").value = "0";
+            
+        }
+            function sell(){ 
+            var bb = document.getElementById("Te");
+            bb.disabled = false;   
+            document.getElementById("w").style.visibility = "hidden";
+            document.getElementById("n").style.visibility = "visible";
 
-    function Onc(){
+        }
+function Onc(){
         var gt;
     var a = document.getElementById("GPA").value;
     var b = document.getElementById("Te").value;
     var c = document.getElementById("De").value;
-                var see = document.getElementById("se").value;
+        var see = document.getElementById("se").value;
         document.getElementById("Re").innerHTML = see;
         if(see == "one"){
             gt = 5;
         }
         else 
            gt = 4; 
+    
+    var bre = 0.4;
     var g = new Date();
     var d = new Date(c);
     var dr = [];
@@ -46,13 +63,22 @@
         dr[4] = d.getMonth() +1;
         dr[5] = d.getDate();
         
+    var wit = document.getElementById("Te");
+    if(wit.disabled == true){
+               bre = 0.8;
+    }
+        else
+            {
+               bre = 0.4;
+            }
+    
         var dayss = ((dr[0] * 360) + (dr[1] * 30) + dr[2]) - ((dr[3] * 360) + (dr[4] * 30) + dr[5]);
         if (dayss >= 3600){
             dayss = 3600;
         }
-    if(a <= gt && a > 0 && b > 0 && b <= 100 && dayss > 0)
+    if(a <= gt && a > 0 && b >= 0 && b <= 100 && dayss > 0)
         {
-    document.getElementById("Re").innerHTML =(((a*100/gt)*0.4) + (b*0.4) + (dayss/360) *2).toFixed(0) ;
+    document.getElementById("Re").innerHTML =(((a*100/gt)*bre) + (b*0.4) + (dayss/360) *2).toFixed(0) ;
  
         }
         else
@@ -65,12 +91,16 @@
     
     <tr><td><input class="form-control" type="number" value="0.0" id="GPA">
         
-        <select id="se">
+   <select id="se">
   <option value="one">5</option>
   <option value="two">4</option>
 
 </select>
-        </td><td><input class="form-control" type="number" value="0.0" id="Te"></td><td><input class="form-control" type="date" id="De"></td></tr>
+        </td><td><input class="form-control" type="number" value="0.0" id="Te">
+<button class="btn btn-light" onclick="sel()" id="n" style="height: 30px; padding: 0px;width: 30px;">بدون</button>
+<button class="btn btn-light" onclick="sell()" id="w" style=" visibility: hidden">مع</button>
+
+        </td><td><input class="form-control" type="date" id="De" placeholder="٠٦/٠٩/٢٠١٨"></td></tr>
     <tr><td colspan="3"><p id="Re" style="text-align: center"></p></td></tr>
     <tr><td colspan="3"><button style="float: right" class="btn btn-secondary" type="button" onclick="Onc()">النتيجة</button></td></tr>
 
