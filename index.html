@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html dir="rtl">
 <head>
-<title>حساب نقاط المفاضلة في جدارة</title>
+<title>حساب نقاط المفاضلة للخدمة المدنية</title>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" /> 
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+
 <link rel="stylesheet" type="text/css" href="CSS/CSS.CSS">
 <script language="JavaScript" src=""></script>
 <!-- Latest compiled and minified CSS -->
@@ -19,21 +21,6 @@
 
 </head>
 <body>
- <style>
- .footer {
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   background-color: #FF5733;
-   color: white;
-   text-align: center;
-}
-    .fo a{
-        color: white;
-        
-    }
-    </style>
 <script>
 
     function Onc(){
@@ -63,7 +50,7 @@
         if (dayss >= 3600){
             dayss = 3600;
         }
-    if(a <= gt && a > 0 && b > 0 && b <= 100 && dayss >= 0)
+    if(a <= gt && a > 0 && b > 0 && b <= 100 && dayss > 0)
         {
     document.getElementById("Re").innerHTML =(((a*100/gt)*0.4) + (b*0.4) + (dayss/360) *2).toFixed(0) ;
  
@@ -73,8 +60,9 @@
        }
 </script>
     <div class="container">
-    <table class="table">
-    <tr style="text-align: center; background-color:#F0F3F4"><th>المعدل التراكمي</th><th>نتيجة الأختبار</th><th>تاريخ التخرج</th></tr>
+    <table class="pure-table pure-table-bordered" style="width: 100%">
+        <thead> <tr style="text-align: center;"><th>المعدل التراكمي</th><th>نتيجة الأختبار</th><th>تاريخ التخرج</th></tr></thead>
+    
     <tr><td><input class="form-control" type="number" value="0.0" id="GPA">
         
         <select id="se">
@@ -87,11 +75,8 @@
     <tr><td colspan="3"><button style="float: right" class="btn btn-secondary" type="button" onclick="Onc()">النتيجة</button></td></tr>
 
     </table>
+    <a href="" target="_blank"  style=" float: right">نقاط المرشحين على المفاضلة السابقة</a>
     </div>
-
-<div class="footer">
-  <p class="fo">By <a target="_blank" href="https://twitter.com/appkits2030">@appkits2030</a> </p>
-</div>
 
 
 </body>
