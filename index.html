@@ -23,21 +23,25 @@
 <body>
 <p id="ddd"></p>
 <script> 
-        function sel(){ 
-            var bb = document.getElementById("Te");
-            bb.disabled = true; 
-            document.getElementById("n").style.visibility = "hidden";
-            document.getElementById("w").style.visibility = "visible";
-            document.getElementById("Te").value = "0";
-            
-        }
-            function sell(){ 
-            var bb = document.getElementById("Te");
-            bb.disabled = false;   
-            document.getElementById("w").style.visibility = "hidden";
-            document.getElementById("n").style.visibility = "visible";
+function myF() {
+var x = document.getElementById("dep");
+var typ = x.selectedIndex;
+var u = document.getElementById("Te");
 
-        }
+
+if(typ == 0){
+
+       u.disabled = false;
+
+}
+
+else {
+       u.value = 0;
+           u.disabled = true;
+}
+} 
+
+
 function Onc(){
         var gt;
     var a = document.getElementById("GPA").value;
@@ -97,12 +101,14 @@ function Onc(){
 
 </select>
         </td><td><input class="form-control" type="number" value="0.0" id="Te">
-<button class="btn btn-light" onclick="sel()" id="n" style="height: 30px; padding: 0px;width: 30px;">بدون</button>
-<button class="btn btn-light" onclick="sell()" id="w" style=" visibility: hidden">مع</button>
+<select id="dep" onchange="myF()">
+<option value="1">مع</option>
+<option value="2">بدون</option>
 
+</select>
         </td><td><input class="form-control" type="date" id="De" placeholder="٠٦/٠٩/٢٠١٨"></td></tr>
     <tr><td colspan="3"><p id="Re" style="text-align: center"></p></td></tr>
-    <tr><td colspan="3"><button style="float: right" class="btn btn-secondary" type="button" onclick="Onc()">النتيجة</button></td></tr>
+    <tr><td colspan="3"><button style="float: right" class="pure-button" type="button" onclick="Onc()">النتيجة</button></td></tr>
 
     </table>
     <a href="jadara.html" target="_blank"  style=" float: right">أضغط هنا لرؤية نتائج الترشيح الأخير في صفحة مستقلة</a>
