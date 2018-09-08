@@ -109,7 +109,10 @@ case "F":
 default:
     text = 0;
 }
-
+if(GPAL > 5){
+ GPAL =0; 
+ HL =0;
+}
    var poin = (text * HH)+(GPAL * Number(HL));
    a += (text * HH)+(GPAL * Number(HL));
    b += Number(HH)+Number(HL);
