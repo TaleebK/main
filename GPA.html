@@ -3,6 +3,8 @@
 <head>
 <title>حساب المعدل التراكمي</title>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" /> 
+<link rel="stylesheet" type="text/css" href="CSS/CSS.CSS">
+<script language="JavaScript" src=""></script>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
@@ -14,14 +16,172 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
 
-<link rel="stylesheet" href="css.css">
 </head>
 <body>
+<style>
+    body {
+        background-color:#FBFCFC;
+    }
+    table {
+width: 100%;
+        text-align: center;
+    }
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+    table th {
+        width: 20%;
+    }
+        table td {
+        width: 20%;
+    }
+    *:focus {
+    outline: none;
+}
 
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 0;
+
+}
+    #G{
+
+  height: 30px;
+        width: 100%;
+          overflow:hidden;
+
+
+    }
+    #G option{
+  display:inline-block;
+        width: 10%;
+        border-style: solid;
+        border-width: 1px;
+        border-color: beige;
+    }
+    
+    #H{
+        height: 30px;
+        width: 100%;
+          overflow:hidden;
+
+    }
+    #H option{
+  display:inline-block;
+        width: 10%;
+        border-style: solid;
+        border-width: 1px;
+        border-color: beige;
+    }
+    .footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #FF5733;
+   color: white;
+   text-align: center;
+}
+    .fo a{
+        color: white;
+        
+    }
+    </style>
 <script>
+    var a=0;
+    var b=0;
+    var x=0;
+    function Onc(){
 
+    
+       var GG = document.getElementById("G").value;
+       var HH = document.getElementById("H").value;
+        var NN = document.getElementById("one").value;
+        var text;
+        switch(GG) {
+    case "A+":
+        text = 5;
+        break;
+    case "A":
+        text = 4.75;
+        break;
+        case "B+":
+        text = 4.5;
+        break;
+    case "B":
+        text = 4;
+        break;
+        case "C+":
+        text = 3.5;
+        break;
+    case "C":
+        text = 3;
+        break;
+        case "D+":
+        text = 2.5;
+        break;
+    case "D":
+        text = 2;
+        break;
+    case "F":
+        text = 1;
+        break;
+    default:
+        text = 0;
+}
+       a += text * HH;
+       b += Number(HH);
+       x++;
+       document.getElementById("tabl").innerHTML += "<tr><td>"+ x + ". "+ NN +"</td><td>"+ GG +"</td><td>"+ HH +"</td><td>"+ HH * text +"</td></tr>";
+       document.getElementById("tt").innerHTML = (a/b).toFixed(2);
+       }
 </script>
+    <div class="container">
+    <table>
+    <tr style="text-align: center; background-color:#AAB7B8; color:white"><th>المقرر</th><th>التقدير</th><th>الساعات</th><th>النقاط</th></tr>
+        <tr><td><input class="form-control" type="text" value="" id="one" placeholder="اسم المقرر"></td>
+        <td>
+<select id="G" multiple>
+  <option value="A+">A+</option>
+  <option value="A">A</option>
+  <option value="B+">B+</option>
+  <option value="B">B</option>
+  <option value="C+">C+</option>
+  <option value="C">C</option>
+  <option value="D+">D+</option>
+  <option value="D">D</option>
+  <option value="F">F</option>
+</select>
+        </td><td>
+        <select id="H" multiple>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+</select>
+        </td><td><button style="float: right" type="button" onclick="Onc()">أضف</button></td></tr>
+        <tr><td colspan="4" id="tt"></td></tr>
+    </table>
+        
+    <table id="tabl">
+            
+            
+
+        </table>
+    </div>
+    
+
+<div class="footer">
+  <p class="fo">By <a target="_blank" href="https://twitter.com/appkits2030">@appkits2030</a> </p>
+</div>
 </body>
 </html>
