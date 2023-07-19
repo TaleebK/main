@@ -3,8 +3,6 @@
 <head>
 <title>حساب المعدل التراكمي</title>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" /> 
-<link rel="stylesheet" type="text/css" href="CSS/CSS.CSS">
-<script language="JavaScript" src=""></script>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
@@ -16,156 +14,274 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
 
+<style>
+body {
+}
+table {
+width: 100%;
+    text-align: center;
+}
+table, th, td {
+    text-align: center;
+}
+table th {
+    width: 20%;
+}
+    table td {
+    width: 20%;
+}
+
+
+.GG {
+appearance: none;
+-webkit-appearance: none;
+background-color: transparent;
+border: 0;
+
+}
+#G{
+
+height: 30px;
+    width: 100%;
+      overflow:hidden;
+
+
+}
+#G option{
+display:inline-block;
+    width: 10%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: beige;
+}
+
+#H{
+    height: 30px;
+    width: 100%;
+      overflow:hidden;
+
+}
+#H option{
+display:inline-block;
+    width: 10%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: beige;
+}
+
+</style>
 </head>
 <body>
-<style>
-    body {
-        background-color:#FBFCFC;
-    }
-    table {
-width: 100%;
-        text-align: center;
-    }
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-    table th {
-        width: 20%;
-    }
-        table td {
-        width: 20%;
-    }
-    *:focus {
-    outline: none;
-}
 
-select {
-  appearance: none;
-  -webkit-appearance: none;
-  background-color: transparent;
-  border: 0;
-
-}
-    #G{
-
-  height: 30px;
-        width: 100%;
-          overflow:hidden;
-
-
-    }
-    #G option{
-  display:inline-block;
-        width: 10%;
-        border-style: solid;
-        border-width: 1px;
-        border-color: beige;
-    }
-    
-    #H{
-        height: 30px;
-        width: 100%;
-          overflow:hidden;
-
-    }
-    #H option{
-  display:inline-block;
-        width: 10%;
-        border-style: solid;
-        border-width: 1px;
-        border-color: beige;
-    }
-    </style>
 <script>
-    var a=0;
-    var b=0;
-    var x=0;
-    function Onc(){
 
-    
-       var GG = document.getElementById("G").value;
-       var HH = document.getElementById("H").value;
-        var NN = document.getElementById("one").value;
-        var text;
-        switch(GG) {
-    case "A+":
-        text = 5;
-        break;
-    case "A":
-        text = 4.75;
-        break;
-        case "B+":
-        text = 4.5;
-        break;
-    case "B":
-        text = 4;
-        break;
-        case "C+":
-        text = 3.5;
-        break;
-    case "C":
-        text = 3;
-        break;
-        case "D+":
-        text = 2.5;
-        break;
-    case "D":
-        text = 2;
-        break;
-    case "F":
-        text = 1;
-        break;
-    default:
-        text = 0;
+function myF() {
+var x = document.getElementById("dep");
+var typ = x.selectedIndex;
+var u = document.getElementById("G");
+var uu = document.getElementById("H");
+var ug = document.getElementById("GPA");
+var uug = document.getElementById("GPAH");
+
+if(typ == 0){
+
+       ug.value = 0;
+       uug.value = 0;
+       ug.style.display = "none";
+       uug.style.display = "none";
+       u.style.display = "inline";
+       uu.style.display = "inline";
+    document.getElementById("one").disabled = false;
+       document.getElementById("one").placeholder="مقرر";
+
 }
-       a += text * HH;
-       b += Number(HH);
-       x++;
-       document.getElementById("tabl").innerHTML += "<tr><td>"+ x + ". "+ NN +"</td><td>"+ GG +"</td><td>"+ HH +"</td><td>"+ HH * text +"</td></tr>";
-       document.getElementById("tt").innerHTML = (a/b).toFixed(2);
-       }
-</script>
-    <div class="container">
-    <table>
-    <tr style="text-align: center; background-color:#AAB7B8; color:white"><th>المقرر</th><th>التقدير</th><th>الساعات</th><th>النقاط</th></tr>
-        <tr><td><input class="form-control" type="text" value="" id="one" placeholder="اسم المقرر"></td>
-        <td>
-<select id="G" multiple>
-  <option value="A+">A+</option>
-  <option value="A">A</option>
-  <option value="B+">B+</option>
-  <option value="B">B</option>
-  <option value="C+">C+</option>
-  <option value="C">C</option>
-  <option value="D+">D+</option>
-  <option value="D">D</option>
-  <option value="F">F</option>
-</select>
-        </td><td>
-        <select id="H" multiple>
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-  <option value="5">5</option>
-  <option value="6">6</option>
-  <option value="7">7</option>
-  <option value="8">8</option>
-  <option value="9">9</option>
-</select>
-        </td><td><button style="float: right" type="button" onclick="Onc()">أضف</button></td></tr>
-        <tr><td colspan="4" id="tt"></td></tr>
-    </table>
-        
-    <table id="tabl">
-            
-            
+else if(typ == 1){
+       u.value = 0;
+       uu.value = 0;
+           u.style.display = "none";
+       uu.style.display = "none";
+       ug.style.display = "inline";
+       uug.style.display = "inline";
+    document.getElementById("one").placeholder="مستوى";
+    document.getElementById("one").disabled = true;
+}
+else {
+       u.value = 0;
+       uu.value = 0;
+           u.style.display = "none";
+       uu.style.display = "none";
+       ug.style.display = "inline";
+       uug.style.display = "inline";
+       document.getElementById("one").placeholder="المعدل التراكمي";
+        document.getElementById("one").disabled = true;
+}
+}    
+    numc=1;
+var numseas=1;
+var numtota =0;
+var a=0;
+var b=0;
+var x=0;
+var po=0;
+function Onc(){
+var GPAL = document.getElementById("GPA").value;
+var HL = document.getElementById("GPAH").value;
 
-        </table>
-    </div>
+   var GG = document.getElementById("G").value;
+   var HH = document.getElementById("H").value;
+    var NN = document.getElementById("one").value;
+    var text;
+    switch(GG) {
+case "A+":
+    text = 5;
+    break;
+case "A":
+    text = 4.75;
+    break;
+    case "B+":
+    text = 4.5;
+    break;
+case "B":
+    text = 4;
+    break;
+    case "C+":
+    text = 3.5;
+    break;
+case "C":
+    text = 3;
+    break;
+    case "D+":
+    text = 2.5;
+    break;
+case "D":
+    text = 2;
+    break;
+case "F":
+    text = 1;
+    break;
+default:
+    text = 0;
+}
+if(GPAL > 5){
+ GPAL =0; 
+ HL =0;
+}
+   var poin = (text * HH)+(GPAL * Number(HL));
+   a += (text * HH)+(GPAL * Number(HL));
+   b += Number(HH)+Number(HL);
+   var GPAT = a/b;
+var xx = document.getElementById("dep");
+var typx = xx.selectedIndex;
     
+   x++;
+   if(GG == 0){
+       GG = GPAL;
+       HH = HL;
+   }
+    if(typx == 0){
+           document.getElementById("tabl").innerHTML += "<tr><td>"+ xx.options[typx].text +"</td><td>"+  NN +" "+ numc +"</td><td>"+ GG +"</td><td>"+ HH +"</td><td>"+ poin +"</td></tr>";
+                    $("#TB1").show();
+        numc++;
+    }
+    else if(typx == 1){
+           document.getElementById("seas").innerHTML += "<tr><td>"+ xx.options[typx].text +"</td><td>"+  numseas +"</td><td>"+ GG +"</td><td>"+ HH +"</td><td>"+ poin +"</td></tr>";
+                    $("#TB2").show();
+        numseas++;
+    }
+    else {
+           if(numtota == 0){
+               document.getElementById("tota").innerHTML += "<tr><td>"+ xx.options[typx].text +"</td><td>"+  "المعدل التراكمي السابق" +"</td><td>"+ GG +"</td><td>"+ HH +"</td><td>"+ poin +"</td></tr>";
+               numtota++;
+                           $("#TB3").show();
+           }
+        else {
+            $("#note").show();
+            setTimeout(function() { $("#note").hide(); }, 5000);
+            document.getElementById("note").innerHTML ="لقد قمت بإضافة المعدل التراكمي سابقا";
+        }
+    }
+   document.getElementById("tt").innerHTML = (GPAT).toFixed(2);
+
+}
+</script>
+<div class="container">
+<table class="pure-table pure-table-bordered">
+<thead>
+<tr><th>النوع</th><th>الوصف</th><th>التقدير</th><th>الساعات</th><th>النقاط</th></tr></thead>
+<tbody>
+    <tr>
+         <td>
+<select id="dep" onchange="myF()">
+<option value="1">مقرر</option>
+<option value="2">مستوى</option>
+<option value="3">تراكمي</option>
+
+</select>
+    </td>
+        <td><input class="form-control" type="text" value="" id="one" placeholder="اسم المقرر"></td>
+    <td>
+<select id="G" class="GG" multiple>
+<option value="0"></option>
+<option value="A+">A+</option>
+<option value="A">A</option>
+<option value="B+">B+</option>
+<option value="B">B</option>
+<option value="C+">C+</option>
+<option value="C">C</option>
+<option value="D+">D+</option>
+<option value="D">D</option>
+<option value="F">F</option>
+</select>
+<input class="form-control" type="number" id="GPA" placeholder="المعدل التراكمي" style="display: none">
+    </td><td>
+    <select id="H" class="GG" multiple>
+<option value="0"></option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+</select>
+<input class="form-control" type="number" id="GPAH" placeholder="مجموع الساعات" style="display: none">
+    </td><td></td></tr>
+</tbody>
+    </table>
+
+<table class="pure-table pure-table-bordered" id="TB3" style="display: none">
+<thead><tr><th colspan='5'>المعدل التراكمي السابق </th></tr></thead>
+<tbody id="tota"></tbody>
+    </table >
+<table class="pure-table pure-table-bordered" style="display: none"  id="TB2">
+<thead><tr><th colspan='5'>المستويات </th></tr></thead>
+<tbody id="seas"></tbody>
+    </table >
+    <table class="pure-table pure-table-bordered" style="display: none" id="TB1">
+<thead><tr><th colspan='5'>المقررات </th></tr></thead>
+<tbody id="tabl"></tbody>
+    </table >
+    
+        <table class="pure-table pure-table-bordered">
+<thead><tr><th colspan='5'>المعدل التراكمي </th></tr></thead>
+<tbody style="display: inline" ><tr><td colspan="5" id="tt"></td></tr>
+</tbody>    </table >
+
+    
+
+    
+<button style="float: right" type="button" onclick="Onc()" class="pure-button" >أضف</button>
+<button style="float: right; margin-right: 5px;" type="button" onclick="location.reload();" class="pure-button">حذف الكل</button>
+
+    <br>
+<div class="alert alert-success" id="note" style="display: none;float: right">
+</div>
+
+</div>
 
 </body>
 </html>
