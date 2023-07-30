@@ -130,11 +130,11 @@ async function res(){
   var keys = Object.keys(localStorage);
     var nlocal = keys.length;
     document.getElementById("ro2").innerHTML = nlocal;
-
+number = 1;
 for(m=0; m<101; m++){
     if(localStorage.getItem(m)!= null)
             if(myJson[m].id-1 == m){
-                document.getElementById("ta").innerHTML += "<tr><td>"+(m)+"</td><td class='badge'>"+localStorage.getItem(m)+"</td><td>"+myJson[m-1].text+ "</td></tr>";
+                document.getElementById("ta").innerHTML += "<tr><td>"+(number++)+"</td><td class='badge'>"+localStorage.getItem(m)+"</td><td>"+myJson[m-1].text+ "</td></tr>";
 
             }
 
