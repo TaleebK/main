@@ -90,18 +90,16 @@
 async function onc(){
 
         const response = await fetch('Names_Of_Allah.json');
-  const myJson = await response.json(); //extract JSON from the http response
+  const myJson = await response.json(); 
 
   val = document.getElementById("n").value;
-  //localStorage.setItem(1, val);
    console.log(myJson)
     for(i=0; i<myJson.length; i++){
     var text = myJson[i].name;
     elem = text.replace(new RegExp(String.fromCharCode(1617, 124, 1614, 124, 1611, 124, 1615, 124, 1612, 124, 1616, 124, 1613, 124, 1618), "g"), "");
-    
-    //document.getElementById("ta").innerHTML += "<tr><td>"+myJson[i].name + "</td><td>" + myJson[i].text+ "</td></tr>";
+    val = val.replace(new RegExp(String.fromCharCode(1617, 124, 1614, 124, 1611, 124, 1615, 124, 1612, 124, 1616, 124, 1613, 124, 1618), "g"), "");
+
     if(val == elem){
-       // document.getElementById("root").innerHTML = myJson[i].text;
     var keys = Object.keys(localStorage);
     var ilocal = keys.length;
             if(localStorage.getItem(myJson[i].id) == elem){
@@ -127,7 +125,7 @@ async function onc(){
 
 async function res(){
     const response = await fetch('Names_Of_Allah.json');
-  const myJson = await response.json(); //extract JSON from the http response
+  const myJson = await response.json(); 
 
   var keys = Object.keys(localStorage);
     var nlocal = keys.length;
