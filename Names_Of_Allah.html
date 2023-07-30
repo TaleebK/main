@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أسماء الله الحسنى</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style>
+    body{
+        margin-top: 50px;
+        margin-bottom: 20px;
+    }
+    table tr td{
+        padding-right: 5px;
+    }
+    #ro {
+        display: none;
+                font-weight: bold;
+
+    }
+    #ro2 {
+        background-color: #3c9dc7;
+                font-weight: bold;
+
+    }
+
+    #ro3 {
+                font-weight: bold;
+
+    }
+    .badge {
+        background-color: #3c9dc7;
+                font-weight: bold;
+
+    }
+
+    #n {
+        margin-bottom: 10px;
+        border-radius: 0px;
+        border-width: 1px;
+}
+
+#bu {
+            margin-bottom: 10px;
+        border-radius: 0px;
+        border-width: 1px;
+        border-color: #3c9dc7;
+        border-top-color: #3c9dc7;
+        color: aliceblue;
+        background-color: #3c9dc7;
+        font-weight: bold;
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h3>كم تحفظ من أسماء الله الحسنى؟ أختبر ذلك..</h3>
+        <input type="text" id="n">
+    <button onclick="onc()" id="bu">أضغط</button>
+
+<div id="root">
+   
+<div class="alert alert-info" id="ro">
+
+</div>
+
+    <div class="panel panel-default">
+    <div class="panel-heading" id="ro3">الأسماء المدخلة <span class="badge" id="ro2"></span></div>
+    <div class="panel-body">
+
+            <table id="ta">
+
+</table>
+
+    </div>
+    <div class="panel-heading"> أسماء الله الحسنى حسب رواية الوليد بن مسلم عند الترمذي </div>
+  </div>
+</div>
+
+
+
+</div> 
+
+</body>
+<script>
+    
+async function onc(){
+
+        const response = await fetch('Names_Of_Allah.json');
+  const myJson = await response.json(); //extract JSON from the http response
+
+  val = document.getElementById("n").value;
+  //localStorage.setItem(1, val);
+   console.log(myJson)
+    for(i=0; i<myJson.length; i++){
+    var text = myJson[i].name;
+    elem = text.replace(new RegExp(String.fromCharCode(1617, 124, 1614, 124, 1611, 124, 1615, 124, 1612, 124, 1616, 124, 1613, 124, 1618), "g"), "");
+    
+    //document.getElementById("ta").innerHTML += "<tr><td>"+myJson[i].name + "</td><td>" + myJson[i].text+ "</td></tr>";
+    if(val == elem){
+       // document.getElementById("root").innerHTML = myJson[i].text;
+    var keys = Object.keys(localStorage);
+    var ilocal = keys.length;
+            if(localStorage.getItem(myJson[i].id) == elem){
+                document.getElementById("ro").innerHTML = "الأسم موجود";
+                  document.getElementById("ro").style.display = "block";
+
+
+            }
+            else {
+                localStorage.setItem(myJson[i].id, val); 
+                location.reload();
+            }
+        break;
+        }
+    else {
+            document.getElementById("ro").innerHTML = " الأسم ليس من الأسماء حسب رواية الوليد بن مسلم";
+            document.getElementById("ro").style.display = "block";
+
+        }
+}
+ 
+}
+
+async function res(){
+    const response = await fetch('Names_Of_Allah.json');
+  const myJson = await response.json(); //extract JSON from the http response
+
+  var keys = Object.keys(localStorage);
+    var nlocal = keys.length;
+    document.getElementById("ro2").innerHTML = nlocal;
+
+for(m=0; m<101; m++){
+    if(localStorage.getItem(m)!= null)
+            if(myJson[m].id-1 == m){
+                document.getElementById("ta").innerHTML += "<tr><td>"+(m)+"</td><td class='badge'>"+localStorage.getItem(m)+"</td><td>"+myJson[m-1].text+ "</td></tr>";
+
+            }
+
+        }
+
+
+}
+
+res();
+
+</script>
+</html>
