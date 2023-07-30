@@ -52,11 +52,27 @@
 
 }
 
+#fl{
+    float: right;
+}
+
 </style>
 </head>
 <body>
 
 <div class="container">
+    <nav class="navbar navbar-default" >
+        <div class="container-fluid" id="fl">
+          <div class="navbar-header" id="fl">
+            <a class="navbar-brand" href="#">برمجيات</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li ><a href="index.html">الرئيسية</a></li>
+            <li class="active"><a href="#">أختبر ذاكرتك</a></li>
+          </ul>
+        </div>
+      </nav>
+
     <h3>كم تحفظ من أسماء الله الحسنى؟ أختبر ذلك..</h3>
         <input type="text" id="n" placeholder="أدخل الأسم">
     <button onclick="onc()" id="bu">أضغط</button>
@@ -99,7 +115,6 @@ async function onc(){
   const myJson = await response.json(); 
 
   val = document.getElementById("n").value;
-   console.log(myJson)
     for(i=0; i<myJson.length; i++){
     var text = myJson[i].name;
     elem = text.replace(new RegExp(String.fromCharCode(1617, 124, 1614, 124, 1611, 124, 1615, 124, 1612, 124, 1616, 124, 1613, 124, 1618), "g"), "");
@@ -137,12 +152,16 @@ async function res(){
     var nlocal = keys.length;
     document.getElementById("ro2").innerHTML = nlocal;
 number = 1;
-for(m=0; m<101; m++){
-    if(localStorage.getItem(m)!= null)
-            if(myJson[m].id-1 == m){
-                document.getElementById("ta").innerHTML += "<tr><td>"+(number++)+"</td><td class='badge'>"+localStorage.getItem(m)+"</td><td>"+myJson[m-1].text+ "</td></tr>";
+for(m=1; m<=101; m++){
+    console.log(m)
 
+    if (localStorage.getItem(m) != null)
+{
+    if (myJson[m-1].id == m){
+                document.getElementById("ta").innerHTML += "<tr><td>"+(number++)+"</td><td class='badge'>"+localStorage.getItem(m)+"</td><td>"+myJson[m-1].text+ "</td></tr>";
             }
+
+}
 
         }
 
