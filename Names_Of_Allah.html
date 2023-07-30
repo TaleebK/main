@@ -68,7 +68,9 @@
 </div>
 
     <div class="panel panel-default">
-    <div class="panel-heading" id="ro3">الأسماء المدخلة <span class="badge" id="ro2"></span></div>
+    <div class="panel-heading" id="ro3">الأسماء المدخلة <span class="badge" id="ro2"></span>
+        
+    </div>
     <div class="panel-body">
 
             <table id="ta">
@@ -81,12 +83,16 @@
 </div>
 
 
+<button onclick="cle()" id="bu">بدء من جديد</button>
 
 </div> 
 
 </body>
 <script>
-    
+ function cle(){
+    localStorage.clear();
+    location.reload();
+ }   
 async function onc(){
 
         const response = await fetch('Names_Of_Allah.json');
