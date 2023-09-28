@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+    
+
+
+          
+</head>
+<body dir="rtl">
+ <div class="container">
+
+    <nav class="navbar navbar-default" >
+          <ul class="nav navbar-nav">
+            <li ><a href="index.html"  style="text-decoration:none">الصفحة الرئيسية</a></li>
+          </ul>
+      </nav>
+
+
+
+    <div class="row">
+        <div class="col-sm-6">
+            <table class="table table-bordered" id="tab">
+                <tr><th>العد</th><th>الأذكار</th><th>الهدف</th><th>العدد</th><th>الحالة</th></tr>
+               </table> 
+            
+        </div>
+    </div>
+
+
+</div>  
+ <script>
+
+    var azkar = {
+            data: [{
+            text: "سبحان الله",
+            tar: 10,
+            count: 0
+            },
+            {
+            text: " الحمد لله",
+            tar: 10,
+            count: 0
+            },
+            {
+            text: "لا إله إلا الله",
+            tar: 10,
+            count: 0
+            },
+            {
+            text: "الله أكبر",
+            tar: 10,
+            count: 0
+            }]
+    }
+
+          for(let i =0; i<azkar.data.length; i++){
+            da = azkar.data;
+            document.getElementById("tab").innerHTML +=`<tr><td><button class="btn btn-info text-white fw-bold" onclick="f(${i})">عد</button></td><td><p> ${da[i].text}</p></td><td>${da[i].tar}</td><td id="t${i}">0</td><td id="ok${i}"></td></tr>`
+          }
+function f(id){
+azkar.data[id].count += 1;
+document.getElementById(`t${id}`).innerHTML = azkar.data[id].count;
+document.getElementById(`ok${id}`).innerHTML = `<p class='text-info fw-bold'>${azkar.data[id].count*100/azkar.data[id].tar}%</p>`;
+
+
+
+if(azkar.data[id].count == azkar.data[id].tar ){
+document.getElementById(`ok${id}`).innerHTML = `<p class='text-info fw-bold'>${azkar.data[id].count*100/azkar.data[id].tar}%</p>`;
+
+}
+}
+
+
+</script> 
+</body>
+</html>
