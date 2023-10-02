@@ -104,6 +104,9 @@
 
  document.getElementById("tab2").innerHTML ="";
               for(let ii =0; ii<azkar.data.length; ii++){
+                if(localStorage.getItem("t"+ii) == null){
+                  localStorage.setItem("t"+ii,0)
+                }
             document.getElementById("tab2").innerHTML +=`<tr><td><p> ${da[ii].text}</p></td><td id="tt${localStorage.getItem("t"+ii)}">${localStorage.getItem("t"+ii)}</td></tr>`
           }
 
@@ -132,6 +135,10 @@ document.getElementById(`ok${id}`).innerHTML = `<p class='text-info fw-bold'>${a
 //document.getElementById("tt"+id).innerHTML = parseInt(localStorage.getItem("t"+id))+1;
  document.getElementById("tab2").innerHTML ="";
               for(let ii =0; ii<azkar.data.length; ii++){
+                                if(localStorage.getItem("t"+ii) == null){
+                  localStorage.setItem("t"+ii,0)
+                }
+
             document.getElementById("tab2").innerHTML +=`<tr><td><p> ${da[ii].text}</p></td><td id="tt${localStorage.getItem("t"+ii)}">${localStorage.getItem("t"+ii)}</td></tr>`
           }
 
