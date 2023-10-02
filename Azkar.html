@@ -9,8 +9,16 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
     
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
+<style>
+  footer{
+    margin-top: 5%;
+    margin-right: 25%;
+    margin-left: 25%;
 
+  }
+</style>
           
 </head>
 <body dir="rtl">
@@ -40,7 +48,7 @@
   <button type="button" onclick="onch()" class="btn btn-info text-white fw-bold" >تحديث</button>
 </form>
       <p id="r"></p>
-    <div class="row">
+      <div class="row">
         <div class="col-sm-6">
             <table class="table table-bordered" id="tab">
                 <tr><th>العد</th><th>الأذكار</th><th>الهدف</th><th>العدد</th><th>الحالة</th></tr>
@@ -48,6 +56,16 @@
             
         </div>
     </div>
+
+<button onclick="up2()" id="updown" class="btn btn-info text-white fw-bold">عرض المجموع</button>
+    <div class="row" style="display: none;" id="non">
+      <div class="col-sm-6">
+          <table class="table table-bordered" id="tab2">
+              <tr><th>الأذكار</th><th>العدد</th></tr>
+             </table> 
+          
+      </div>
+  </div>
 
 
 </div>  
@@ -83,8 +101,24 @@
             da = azkar.data;
             document.getElementById("tab").innerHTML +=`<tr><td><button class="btn btn-info text-white fw-bold" onclick="f(${i})">عد</button></td><td><p> ${da[i].text}</p></td><td>${da[i].tar}</td><td id="t${i}">0</td><td id="ok${i}"></td></tr>`
           }
+
+ document.getElementById("tab2").innerHTML ="";
+              for(let ii =0; ii<azkar.data.length; ii++){
+            document.getElementById("tab2").innerHTML +=`<tr><td><p> ${da[ii].text}</p></td><td id="tt${localStorage.getItem("t"+ii)}">${localStorage.getItem("t"+ii)}</td></tr>`
+          }
+
 function f(id){
+  
 azkar.data[id].count += 1;
+if(localStorage.getItem("t"+id) == null){
+  localStorage.setItem("t"+id,0);
+
+}
+else {
+  let nn = parseInt(localStorage.getItem("t"+id)) +1;
+  localStorage.setItem("t"+id,nn);
+
+}
 document.getElementById(`t${id}`).innerHTML = azkar.data[id].count;
 document.getElementById(`ok${id}`).innerHTML = `<p class='text-info fw-bold'>${azkar.data[id].count*100/azkar.data[id].tar}%</p>`;
 
@@ -94,6 +128,13 @@ if(azkar.data[id].count == azkar.data[id].tar ){
 document.getElementById(`ok${id}`).innerHTML = `<p class='text-info fw-bold'>${azkar.data[id].count*100/azkar.data[id].tar}%</p>`;
 
 }
+
+//document.getElementById("tt"+id).innerHTML = parseInt(localStorage.getItem("t"+id))+1;
+ document.getElementById("tab2").innerHTML ="";
+              for(let ii =0; ii<azkar.data.length; ii++){
+            document.getElementById("tab2").innerHTML +=`<tr><td><p> ${da[ii].text}</p></td><td id="tt${localStorage.getItem("t"+ii)}">${localStorage.getItem("t"+ii)}</td></tr>`
+          }
+
 }
 
 function onch(){
@@ -109,6 +150,27 @@ function onch(){
 
   location.reload();
 }
+
+function up2(){
+
+  if(document.getElementById("non").style.display == "none"){
+    document.getElementById("non").style.display = "block";
+    document.getElementById("updown").innerHTML ="إخفاء"
+
+
+
+  }
+  else {
+    document.getElementById("non").style.display = "none";
+    document.getElementById("updown").innerHTML ="عرض المجموع"
+
+  }
+
+}
+
+
 </script> 
+
+<footer id="footer"><p>للملاحظات الرجاء التواصل على البريد التالي appkits2030@gmail.com</p></footer>
 </body>
 </html>
